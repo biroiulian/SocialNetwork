@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="570.0" minWidth="640.0" prefHeight="580.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socialnetwork.socialnetwork.HomeSceneController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Help" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="537.0" prefWidth="277.0" spacing="2.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="36.0" prefWidth="246.0" spacing="12.0">
+               <children>
+                  <Circle fx:id="statusCircle" fill="#09a444" onMouseClicked="#onStatusCirclePressed" radius="12.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Circle>
+                  <Label fx:id="UsernameLabel" prefHeight="28.0" prefWidth="112.0" text="Username">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button id="LogOutButton" fx:id="LogOutButton" mnemonicParsing="false" onAction="#onLogOutButtonPressed" prefHeight="26.0" prefWidth="59.0" text="Log Out" textFill="#8c1111">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <effect>
+                        <Blend mode="COLOR_BURN" />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+            <Region prefHeight="20.0" prefWidth="200.0" />
+            <HBox spacing="2.0">
+               <children>
+                  <Label maxWidth="110.0" prefHeight="27.0" prefWidth="110.0" text="Requests list:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="27.0" prefWidth="40.0" />
+                  <Button fx:id="AcceptFriendReqButton" mnemonicParsing="false" onAction="#onAcceptFriendReqButtonPressed" prefHeight="26.0" prefWidth="57.0" text="Accept" />
+                  <Button mnemonicParsing="false" onAction="#onDeleteFriendReqButtonPressed" prefHeight="26.0" prefWidth="58.0" text="Delete">
+                     <HBox.margin>
+                        <Insets left="3.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <ListView fx:id="FriendReqListView" prefHeight="109.0" prefWidth="246.0" />
+            <HBox>
+               <children>
+                  <Label maxWidth="100.0" prefHeight="27.0" prefWidth="100.0" text="Friend list:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="27.0" prefWidth="26.0" />
+                  <Button fx:id="OpenConvButton" mnemonicParsing="false" onAction="#onOpenConvButtonPressed" prefHeight="26.0" prefWidth="105.0" text="Open Conv">
+                     <HBox.margin>
+                        <Insets right="3.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="DeleteFriendButton" mnemonicParsing="false" onAction="#onDeleteFriendButtonPressed" prefHeight="26.0" prefWidth="110.0" text="Delete">
+                     <HBox.margin>
+                        <Insets left="3.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
+            <ListView fx:id="FriendListView" prefHeight="117.0" prefWidth="246.0" />
+            <HBox>
+               <children>
+                  <Label maxWidth="191.0" prefHeight="27.0" prefWidth="154.0" text="Sent requests list:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="27.0" prefWidth="36.0" />
+                  <Button fx:id="DeleteSentFriendReqButton" mnemonicParsing="false" onAction="#onDeleteSentFriendReqButtonPressed" prefHeight="26.0" prefWidth="110.0" text="Delete" />
+               </children>
+            </HBox>
+            <ListView fx:id="SentFriendReqListView" prefHeight="117.0" prefWidth="246.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets left="2.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Live Up!" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Add a friend:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="UsernameFriendReqTextField" maxWidth="100.0" prefHeight="26.0" prefWidth="100.0" />
+                  <Button fx:id="SendFriendReqButton" mnemonicParsing="false" onAction="#onSendFriendReqButtonPressed" text="Send friend request" />
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="351.0" spacing="5.0">
+               <children>
+                  <Region maxHeight="20.0" maxWidth="100.0" prefHeight="20.0" prefWidth="100.0" />
+                  <Label fx:id="FriendRequestSentLabel" textFill="#e70000">
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="62.0" prefWidth="351.0" spacing="10.0">
+                     <children>
+                        <Circle fx:id="Circle1" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <Circle fx:id="Circle2" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="Circle3" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="62.0" prefWidth="351.0" spacing="10.0">
+                     <children>
+                        <Circle fx:id="Circle4" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <Circle fx:id="Circle5" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="Circle6" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="62.0" prefWidth="351.0" spacing="10.0">
+                     <children>
+                        <Circle fx:id="Circle7" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <Circle fx:id="Circle8" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="Circle9" fill="DODGERBLUE" onMouseClicked="#onGameCirclePressed" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="18.0" prefWidth="351.0">
+                     <children>
+                        <Label text="Make them all one color">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Score:   ">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="ScoreLabel" text="0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="FriendConvLabel" text="No friend currently selected">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="ChatListView" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets right="2.0" />
+                     </VBox.margin>
+                  </ListView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="MessageTextField" prefHeight="28.0" prefWidth="308.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="SendMessageButton" mnemonicParsing="false" onAction="#onSendMessageButtonPressed" prefHeight="26.0" prefWidth="50.0" text="Send">
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

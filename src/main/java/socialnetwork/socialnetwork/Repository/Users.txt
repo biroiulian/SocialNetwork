@@ -1,0 +1,8 @@
+iulian,parola,20,
+ionica,parola,14,
+corina,parola,33,
+ilie,parola,21,
+cristi,parola,25,
+andrei,parola,26,
+robert,parola,28,
+costel,aprolalunga,16,
